@@ -1,11 +1,11 @@
 class SongsController < ApplicationController
 
     def index
-        songs = Songs.all
+        songs = Song.all
     end
 
     def show
         song = Song.find(params[:id])
     end
-    
+
 end
