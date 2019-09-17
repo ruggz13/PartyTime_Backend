@@ -3,5 +3,5 @@ Rails.application.routes.draw do
   resources :users, only: [:show, :create, :update, :destroy]
   resources :songs, only: [:index, :show]
   resources :playlist, only: [:index, :show, :create, :update, :destroy]
-  resources :playlist_songs, only: [:index, :show, :update, :destroy]
+  resources :playlist_songs, only: [:index, :show, :create, :update, :destroy]
 end
