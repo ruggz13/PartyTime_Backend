@@ -4,4 +4,7 @@ Rails.application.routes.draw do
   resources :songs, only: [:index, :show]
   resources :playlist, only: [:index, :show, :create, :update, :destroy]
   resources :playlist_songs, only: [:index, :show, :create, :update, :destroy]
+
+  get '/auth/spotify/callback', to: 'users#spotify'
+  get '/api/v1/login', to: 'login#create'
 end
