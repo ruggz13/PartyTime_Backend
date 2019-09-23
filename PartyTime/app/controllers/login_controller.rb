@@ -5,7 +5,7 @@ class LoginController < ApplicationController
         query_params = {
             client_id: ENV['client_id'],
             response_type: "code",
-            redirect_uri: 'http://localhost:3001/auth/spotify/callback',
+            redirect_uri: ENV['redirect_uri'],
             scope: 'user-read-email playlist-modify-public user-library-read user-library-modify',
             show_dialog: true
         }
