@@ -11,7 +11,7 @@ class PlaylistsController < ApplicationController
     end
 
     def create
-        playlist = Playlist.create(playlist_params)
+        playlist = Playlist.find_or_create_by(playlist_params)
         render json: playlist
     end
 
@@ -28,6 +28,6 @@ class PlaylistsController < ApplicationController
     private
 
     def playlist_params
-       params.require(:playlist).permit(:song_id, :user_id, :title, :description) 
+       params.require(:playlist).permit(:spotify_id, :user_id, :title) 
     end
 end
