@@ -10,8 +10,11 @@ class EventsController < ApplicationController
     end
 
     def create
-        event = Event.create!(event_params)
-        render json: event
+            playlist = Playlist.find_or_create_by(playlist_params)
+            event = Event.new(event_params)
+            event.playlist = playlist
+            event.save
+            render json: event
     end
 
     def update
@@ -27,6 +30,10 @@ class EventsController < ApplicationController
     private
 
     def event_params
-       params.require(:event).permit(:name, :host, :venue, :playlist_id) 
+       params.permit(:name, :host, :venue) 
     end
+
+    def playlist_params
+        params.permit(:spotify_id, :user_id, :title) 
+     end
 end
