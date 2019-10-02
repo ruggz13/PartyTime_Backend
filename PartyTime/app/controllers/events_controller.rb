@@ -9,6 +9,11 @@ class EventsController < ApplicationController
         render json: event
     end
 
+    def getuserevents
+        events = User.find(params[:user_id]).events
+        render json: events
+    end
+
     def create
             playlist = Playlist.find_or_create_by(playlist_params)
             event = Event.new(event_params)
