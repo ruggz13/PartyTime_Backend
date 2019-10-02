@@ -46,3 +46,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 #Rspotify gem
 gem 'rspotify'
+
+gem 'rails_12factor', group: :production
